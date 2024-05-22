@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MediaGyver" WindowState="Maximized" Height="450" Width="800">
     <Grid>
-        
-    </Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Button x:Name="MusicButton" Content="Music" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="0" Command="{Binding MusicButtonPressCommand}"/>
+		<Button x:Name="MoviesButton" Content="Movies" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Command="{Binding MoviesButtonPressCommand}"/>
+
+	</Grid>
 </Window>

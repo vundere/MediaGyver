@@ -14,13 +14,23 @@ namespace MediaGyver.Viewmodels
     {
 
         private ICommand _browseAddLibraryFolder;
+		private ICommand _musicButtonPressCommand;
+		private ICommand _moviesButtonPressCommand;
 
-        public LandingWindow()
+		public LandingWindow()
         {
             _browseAddLibraryFolder = new RelayCommand(BrowseAddLibraryFolder);
-        }
+			_musicButtonPressCommand = new RelayCommand(MusicButtonClicked);
+			_moviesButtonPressCommand = new RelayCommand(MoviesButtonClicked);
+		}
 
-        private void BrowseAddLibraryFolder()
+		public ICommand MusicButtonPressCommand => _musicButtonPressCommand;
+		public ICommand MoviesButtonPressCommand => _moviesButtonPressCommand;
+
+
+
+
+		private void BrowseAddLibraryFolder()
         {
             using (FolderBrowserDialog dialog = new())
             {
@@ -32,10 +42,25 @@ namespace MediaGyver.Viewmodels
                 }
             }
         }
+		private void MusicButtonClicked()
+		{
+			MusicMainWindow musicMainWindow = new MusicMainWindow();
+			musicMainWindow.Show();
+
+		}
+		private void MoviesButtonClicked()
+		{
+			MoviesMainWindow moviesMainWindow = new MoviesMainWindow();
+			moviesMainWindow.Show();
+
+		}
 
 
-        #region Interface
-        public event PropertyChangedEventHandler? PropertyChanged;
+
+
+
+		#region Interface
+		public event PropertyChangedEventHandler? PropertyChanged;
 
         public void RaisePropertyChange([CallerMemberName] string? propertyname = null)
         {
