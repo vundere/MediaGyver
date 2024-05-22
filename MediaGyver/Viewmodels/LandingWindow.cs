@@ -22,7 +22,7 @@ namespace MediaGyver.Viewmodels
 
         private void BrowseAddLibraryFolder()
         {
-            using (FolderBrowserDialog dialog = new FolderBrowserDialog())
+            using (FolderBrowserDialog dialog = new())
             {
                 dialog.Description = "Select Folder...";
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -39,10 +39,7 @@ namespace MediaGyver.Viewmodels
 
         public void RaisePropertyChange([CallerMemberName] string? propertyname = null)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyname));
         }
         #endregion
     }
