@@ -7,49 +7,6 @@
         mc:Ignorable="d"
         Title="MediaGyver" WindowState="Maximized" Height="450" Width="800">
     <Grid>
-        <Grid>
-            <TabControl x:Name="tabControl">
-                <TabItem Header="Library View">
-                    <Grid>
-                        <ListView x:Name="libraryViewBox" Margin="10" ItemsSource="{Binding Songs}">
-                            <ListView.View>
-                                <GridView AllowsColumnReorder="True">
-
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Tree View">
-                    <Grid Background="#FFE5E5E5">
-                        <ComboBox x:Name="treeViewSelectStructure" HorizontalAlignment="Left" Margin="20,21,0,0" VerticalAlignment="Top" Width="120">
-                            <ComboBoxItem Content="Artist" IsSelected="True"/>
-                            <ComboBoxItem Content="Album"/>
-                            <ComboBoxItem Content="File path"/>
-                        </ComboBox>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Playlists">
-
-                </TabItem>
-                <TabItem Header="DB Management">
-                    <Grid Background="#FFE5E5E5" Margin="0,0,0,0">
-                        <Button x:Name="scanFilesButton" Content="Scan" Width="80" HorizontalAlignment="Left" Margin="10,10,0,0" Height="23" VerticalAlignment="Top" Click="ScanFiles"/>
-                        <TextBox x:Name="scanFolder" Height="23" Margin="106,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="371" Text="{Binding ScanLocation}" />
-                        <Button x:Name="dlBrowse" Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" Width="23" Margin="482,10,0,0" Click="ScanBrowse_click"/>
-                        <RichTextBox x:Name="logOutput" IsReadOnly="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="10,0,10,19" Height="191" VerticalAlignment="Bottom">
-                            <RichTextBox.Resources>
-                                <Style TargetType="Paragraph">
-                                    <Setter Property="Margin" Value="0"/>
-                                </Style>
-                            </RichTextBox.Resources>
-                        </RichTextBox>
-                    </Grid>
-                </TabItem>
-                <TabItem Header="Item info">
-
-                </TabItem>
-            </TabControl>
-        </Grid>
+        
     </Grid>
 </Window>
