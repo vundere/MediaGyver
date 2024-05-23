@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using MediaGyver.Settings;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -20,6 +21,8 @@ namespace MediaGyver
         {
             InitializeComponent();
             DataContext = new Viewmodels.LandingWindow();
+
+            Scanner.Scan(Testvars.INITFOLDER);
         }
     }
 }
