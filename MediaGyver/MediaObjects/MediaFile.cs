@@ -17,5 +17,7 @@ namespace MediaGyver.MediaObjects
             return extensionLessPath += FileExtension;
         }
         public virtual required string Title {  get; set; }
+
+        public abstract void FromTagFile(TagLib.File tfile);
     }
 }

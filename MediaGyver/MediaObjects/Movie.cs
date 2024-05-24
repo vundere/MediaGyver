@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TagLib;
 
 namespace MediaGyver.MediaObjects
 {
@@ -14,5 +15,10 @@ namespace MediaGyver.MediaObjects
         public int Year { get; set; }
         public long? Runtime { get; set; }
         public string? ImdbId { get; set; }
+
+        public override void FromTagFile(File tfile)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
