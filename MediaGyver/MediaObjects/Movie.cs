@@ -16,7 +16,7 @@ namespace MediaGyver.MediaObjects
         public long? Runtime { get; set; }
         public string? ImdbId { get; set; }
 
-        public override void FromTagFile(File tfile)
+        public override void FromTagFile(TagLib.File tfile)
         {
             throw new NotImplementedException();
         }

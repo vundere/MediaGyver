@@ -21,8 +21,6 @@ namespace MediaGyver
         {
             InitializeComponent();
             DataContext = new Viewmodels.LandingWindow();
-
-            // Scanner.Scan(Testvars.INITFOLDER); // Uncomment to run scanner at startup - for testing purposes only
         }
     }
 }

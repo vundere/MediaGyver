@@ -15,7 +15,7 @@ namespace MediaGyver.MediaObjects
         public int EpisodeNumber { get; set; }
         public long Duration { get; set; }
 
-        public override void FromTagFile(File tfile)
+        public override void FromTagFile(TagLib.File tfile)
         {
             throw new NotImplementedException();
         }

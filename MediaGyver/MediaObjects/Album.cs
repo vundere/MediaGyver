@@ -11,7 +11,8 @@ namespace MediaGyver.MediaObjects
     {
         public required int Tracktotal { get; set; }
         public int? Discs { get; set; }
-        public override void FromTagFile(File tfile)
+
+        public override void FromTagFile(TagLib.File tfile)
         {
             throw new NotImplementedException();
         }

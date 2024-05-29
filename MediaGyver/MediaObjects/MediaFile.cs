@@ -9,14 +9,14 @@ namespace MediaGyver.MediaObjects
 {
     public abstract class MediaFile
     {
-        public virtual required string FileDir { get; set; } // Path to parent directory
-        public virtual required string FileName { get; set; } // Filename, no path or extension
-        public virtual required string FileExtension { get; set; } // Extension, obviously
+        public virtual string? FileDir { get; set; } // Path to parent directory
+        public virtual string? FileName { get; set; } // Filename, no path or extension
+        public virtual string? FileExtension { get; set; } // Extension, obviously
         public virtual string FullPath() {
             string extensionLessPath =  Path.Join(FileDir, FileName);
             return extensionLessPath += FileExtension;
         }
-        public virtual required string Title {  get; set; }
+        public virtual string? Title {  get; set; }
 
         public abstract void FromTagFile(TagLib.File tfile);
     }

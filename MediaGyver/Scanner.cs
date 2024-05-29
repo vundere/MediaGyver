@@ -11,8 +11,9 @@ namespace MediaGyver
     internal class Scanner
     {
         public Scanner() { }
+        public List<TagLib.File>? ScannerResult { get; set; }
 
-        public static void Scan(string startpath)
+        public void Scan(string startpath)
         {
             List<TagLib.File> res = new List<TagLib.File>();
             List<string> files = new(Directory.EnumerateFiles(startpath, "*", SearchOption.AllDirectories));
@@ -35,6 +36,7 @@ namespace MediaGyver
                     }
                 }
             }
+            ScannerResult = res;
         }
     }
 }
