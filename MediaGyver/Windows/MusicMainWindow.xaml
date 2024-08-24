@@ -3,15 +3,38 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MediaGyver"
+        xmlns:local="clr-namespace:MediaGyver" xmlns:viewmodels="clr-namespace:MediaGyver.Viewmodels" d:DataContext="{d:DesignInstance Type=viewmodels:MusicMainWindowViewModel}"
         mc:Ignorable="d"
         Title="MusicMainWindow" Height="450" Width="800">
     <Grid>
+
+        <Grid.ContextMenu>
+            <ContextMenu ItemsSource="{Binding Actions}">
+                <!--DOES NOT WORK - ACTION APPEARS IN MENU BUT DOES NOT FIRE ON CLICK-->
+            </ContextMenu>
+
+        </Grid.ContextMenu>
+
+
         <TabControl x:Name="tabControl">
             <TabItem Header="Library View">
                 <Grid>
                     <!--<ListView x:Name="libraryListView" ItemsSource="{Binding LibraryFiles}"/>-->
-                    <ListView x:Name="libraryListView" ItemsSource="{Binding LibraryFiles}">
+                    <ListView x:Name="libraryListView" ItemsSource="{Binding LibraryFiles}" SelectedItem="{Binding SelectedItem}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="viewmodels:DoubleClickHandler.Command" Value="{Binding DataContext.OpenDebugPropertiesCommand, RelativeSource={RelativeSource AncestorType=ListView}}" />
+                                <Setter Property="viewmodels:DoubleClickHandler.CommandParameter" Value="{Binding Me}" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Title" Width="200" DisplayMemberBinding="{Binding Title}"/>
+                                <GridViewColumn Header="Artist" Width="200" DisplayMemberBinding="{Binding Artist}"/>
+                                <GridViewColumn Header="Year" Width="150" DisplayMemberBinding="{Binding Year}"/>
+                                <GridViewColumn Header="Bitrate" Width="150" DisplayMemberBinding="{Binding Bitrate}"/>
+                            </GridView>
+                        </ListView.View>
 
                     </ListView>
                 </Grid>

@@ -46,13 +46,11 @@ namespace MediaGyver.Viewmodels
 		{
 			MusicMainWindow musicMainWindow = new MusicMainWindow();
 			musicMainWindow.Show();
-
 		}
 		private void MoviesButtonClicked()
 		{
-			MoviesMainWindow moviesMainWindow = new MoviesMainWindow();
+            MoviesMainWindow moviesMainWindow = new MoviesMainWindow();
 			moviesMainWindow.Show();
-
 		}
 
 

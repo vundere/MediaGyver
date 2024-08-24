@@ -20,6 +20,9 @@ namespace MediaGyver.MediaObjects
         public string? Album { get; set; }
         public string? Format { get; set; } // Need to check if we can get path or format from tag file
         public int? Bitrate { get; set; }
+        public uint? Year { get; set; }
+        public TagLib.File File { get; set; }
+        public Track Me { get; set; }
 
 
         public override void FromTagFile(TagLib.File tfile)
@@ -34,6 +37,10 @@ namespace MediaGyver.MediaObjects
             // string format = Path.GetExtension(filepath);
             int bitrate = tfile.Properties.AudioBitrate;
             this.Bitrate = bitrate;
+            uint year = tfile.Tag.Year;
+            this.Year = year;
+            this.File = tfile;
+            this.Me = this;
         }
 
         public override string ToString()
